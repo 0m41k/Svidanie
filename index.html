@@ -2,7 +2,10 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
     <title>Секретное письмо</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;600;700&display=swap"
@@ -14,14 +17,22 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
       body {
         min-height: 100vh;
+        min-height: -webkit-fill-available;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        padding: 16px;
         font-family: "Inter", sans-serif;
         background: #1a0a12;
         background-image:
@@ -43,9 +54,10 @@
         background-attachment: fixed;
         position: relative;
         overflow-x: hidden;
+        overflow-y: auto;
       }
 
-      /* ===== АНИМИРОВАННЫЕ ЧАСТИЦЫ (звёзды/сердечки) ===== */
+      /* ===== АНИМИРОВАННЫЕ ЧАСТИЦЫ ===== */
       .particles {
         position: fixed;
         top: 0;
@@ -63,6 +75,7 @@
         opacity: 0.25;
         animation: floatParticle 20s linear infinite;
         color: #f48fb1;
+        will-change: transform;
       }
 
       @keyframes floatParticle {
@@ -88,11 +101,11 @@
         z-index: 1;
         max-width: 680px;
         width: 100%;
-        padding: 50px 45px 45px;
-        background: rgba(26, 10, 18, 0.75);
+        padding: 40px 28px 35px;
+        background: rgba(26, 10, 18, 0.78);
         backdrop-filter: blur(24px) saturate(1.4);
         -webkit-backdrop-filter: blur(24px) saturate(1.4);
-        border-radius: 48px;
+        border-radius: 40px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow:
           0 40px 80px rgba(0, 0, 0, 0.7),
@@ -102,24 +115,17 @@
         transition:
           transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
           box-shadow 0.4s ease;
+        margin: auto;
       }
 
-      .invitation-card:hover {
-        transform: translateY(-4px) scale(1.005);
-        box-shadow:
-          0 50px 100px rgba(0, 0, 0, 0.8),
-          0 0 0 1px rgba(244, 143, 177, 0.15),
-          0 0 60px rgba(214, 51, 108, 0.1);
-      }
-
-      /* ===== ДЕКОРАТИВНАЯ ПОДСВЕТКА СВЕРХУ ===== */
+      /* ===== ДЕКОРАТИВНАЯ ПОДСВЕТКА ===== */
       .glow-ring {
         position: absolute;
-        top: -60px;
+        top: -50px;
         left: 50%;
         transform: translateX(-50%);
-        width: 140px;
-        height: 140px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         background: radial-gradient(
           circle,
@@ -145,14 +151,14 @@
       /* ===== АВАТАР ===== */
       .avatar-wrapper {
         position: relative;
-        width: 130px;
-        height: 130px;
-        margin: 0 auto 22px;
+        width: 110px;
+        height: 110px;
+        margin: 0 auto 18px;
       }
 
       .avatar-ring {
         position: absolute;
-        inset: -6px;
+        inset: -5px;
         border-radius: 50%;
         background: conic-gradient(
           from 0deg,
@@ -188,7 +194,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 64px;
+        font-size: 52px;
         border: 3px solid rgba(255, 255, 255, 0.15);
         position: relative;
         z-index: 1;
@@ -196,33 +202,29 @@
         box-shadow: 0 12px 40px rgba(214, 51, 108, 0.3);
       }
 
-      .avatar:hover {
-        transform: scale(1.06) rotate(-4deg);
-      }
-
       /* ===== ЗАГОЛОВКИ ===== */
       h1 {
         font-family: "Playfair Display", serif;
-        font-size: 3.2rem;
+        font-size: 2.6rem;
         font-weight: 700;
         background: linear-gradient(135deg, #f8bbd0, #f06292, #ec407a);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         letter-spacing: -0.5px;
-        margin-bottom: 4px;
+        margin-bottom: 2px;
         text-shadow: 0 0 60px rgba(236, 64, 122, 0.15);
       }
 
       .subtitle {
-        font-size: 1.15rem;
+        font-size: 1rem;
         font-weight: 300;
         color: rgba(255, 255, 255, 0.55);
         letter-spacing: 0.3px;
-        margin-bottom: 28px;
+        margin-bottom: 22px;
         font-style: italic;
         border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        padding-bottom: 22px;
+        padding-bottom: 18px;
       }
 
       .subtitle span {
@@ -232,17 +234,17 @@
 
       /* ===== ТЕКСТ ПРИГЛАШЕНИЯ ===== */
       .invitation-text {
-        font-size: 1.08rem;
-        line-height: 1.9;
+        font-size: 1rem;
+        line-height: 1.8;
         color: rgba(255, 255, 255, 0.8);
-        margin: 18px 0 28px;
+        margin: 14px 0 22px;
         font-weight: 300;
       }
 
       .invitation-text strong {
         color: #f8bbd0;
         font-weight: 700;
-        font-size: 1.15rem;
+        font-size: 1.05rem;
       }
 
       .highlight {
@@ -252,7 +254,7 @@
           rgba(236, 64, 122, 0.25) 40%,
           transparent 80%
         );
-        padding: 0 10px;
+        padding: 0 8px;
         font-weight: 600;
         color: #f8bbd0;
         border-radius: 4px;
@@ -261,9 +263,9 @@
       /* ===== ДЕТАЛИ ВСТРЕЧИ ===== */
       .details {
         background: rgba(255, 255, 255, 0.03);
-        border-radius: 24px;
-        padding: 22px 20px;
-        margin: 24px 0 32px;
+        border-radius: 20px;
+        padding: 16px 16px;
+        margin: 18px 0 24px;
         border: 1px solid rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(4px);
       }
@@ -272,28 +274,28 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 12px;
-        font-size: 1.05rem;
+        gap: 10px;
+        font-size: 0.95rem;
         color: rgba(255, 255, 255, 0.75);
-        padding: 6px 0;
+        padding: 4px 0;
         flex-wrap: wrap;
       }
 
       .detail-item + .detail-item {
         border-top: 1px solid rgba(255, 255, 255, 0.03);
-        padding-top: 12px;
-        margin-top: 6px;
+        padding-top: 10px;
+        margin-top: 4px;
       }
 
       .detail-item .emoji {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         filter: drop-shadow(0 0 6px rgba(244, 143, 177, 0.2));
       }
 
       .detail-item .label {
         font-weight: 300;
         color: rgba(255, 255, 255, 0.4);
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
@@ -302,9 +304,9 @@
         font-weight: 600;
         color: #f8bbd0;
         background: rgba(244, 143, 177, 0.08);
-        padding: 4px 18px;
+        padding: 3px 14px;
         border-radius: 40px;
-        font-size: 1rem;
+        font-size: 0.9rem;
         border: 1px solid rgba(244, 143, 177, 0.06);
       }
 
@@ -312,37 +314,34 @@
       .actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 14px;
+        gap: 12px;
         justify-content: center;
-        margin: 28px 0 18px;
+        margin: 22px 0 14px;
       }
 
       .btn {
-        padding: 17px 42px;
+        padding: 15px 32px;
         border: none;
         border-radius: 60px;
-        font-size: 1.05rem;
+        font-size: 0.95rem;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         flex: 1 1 auto;
-        min-width: 150px;
+        min-width: 130px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
         position: relative;
         overflow: hidden;
         letter-spacing: 0.2px;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
       }
 
-      .btn::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        opacity: 0;
-        transition: opacity 0.4s ease;
+      .btn:active {
+        transform: scale(0.95) !important;
       }
 
       .btn-primary {
@@ -351,13 +350,8 @@
         box-shadow: 0 8px 32px rgba(214, 51, 108, 0.35);
       }
 
-      .btn-primary:hover {
-        transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 14px 44px rgba(214, 51, 108, 0.5);
-      }
-
       .btn-primary:active {
-        transform: scale(0.96);
+        box-shadow: 0 4px 16px rgba(214, 51, 108, 0.25);
       }
 
       .btn-secondary {
@@ -367,45 +361,38 @@
         backdrop-filter: blur(4px);
       }
 
-      .btn-secondary:hover {
-        background: rgba(255, 255, 255, 0.08);
-        transform: translateY(-4px);
-        border-color: rgba(244, 143, 177, 0.2);
-        color: #fff;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      .btn-secondary:active {
+        background: rgba(255, 255, 255, 0.1);
       }
 
-      /* ===== СЧЁТЧИК СЕРДЕЧЕК (интерактив) ===== */
+      /* ===== СЧЁТЧИК СЕРДЕЧЕК ===== */
       .heart-counter {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        margin-top: 18px;
-        font-size: 0.9rem;
+        gap: 6px;
+        margin-top: 14px;
+        font-size: 0.8rem;
         color: rgba(255, 255, 255, 0.25);
         cursor: default;
         user-select: none;
+        -webkit-tap-highlight-color: transparent;
       }
 
       .heart-counter .hearts-display {
-        font-size: 1.1rem;
+        font-size: 1rem;
         letter-spacing: 2px;
-        min-width: 60px;
+        min-width: 50px;
         transition: all 0.3s;
       }
 
       .heart-counter .click-hint {
         opacity: 0.4;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         transition: opacity 0.3s;
       }
 
-      .heart-counter:hover .click-hint {
-        opacity: 0.8;
-      }
-
-      /* ===== ФЕЙЕРВЕРК (контейнер) ===== */
+      /* ===== ФЕЙЕРВЕРК ===== */
       .firework-container {
         position: fixed;
         top: 0;
@@ -418,8 +405,9 @@
 
       .firework-particle {
         position: absolute;
-        font-size: 28px;
+        font-size: 24px;
         animation: fireworkBurst 1.6s ease-out forwards;
+        will-change: transform, opacity;
       }
 
       @keyframes fireworkBurst {
@@ -436,16 +424,17 @@
       /* ===== ТОСТ ===== */
       .toast {
         position: fixed;
-        bottom: 40px;
+        bottom: 30px;
         left: 50%;
         transform: translateX(-50%) translateY(20px);
         background: rgba(0, 0, 0, 0.85);
         backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.06);
         color: #fff;
-        padding: 16px 36px;
+        padding: 14px 28px;
         border-radius: 60px;
-        font-size: 1.05rem;
+        font-size: 0.95rem;
         font-weight: 400;
         opacity: 0;
         transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -453,6 +442,7 @@
         z-index: 1000;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         white-space: nowrap;
+        max-width: 90%;
       }
 
       .toast.show {
@@ -460,69 +450,7 @@
         transform: translateX(-50%) translateY(0);
       }
 
-      /* ===== АДАПТИВ ===== */
-      @media (max-width: 600px) {
-        .invitation-card {
-          padding: 34px 20px 30px;
-          border-radius: 32px;
-        }
-
-        h1 {
-          font-size: 2.4rem;
-        }
-
-        .avatar-wrapper {
-          width: 100px;
-          height: 100px;
-        }
-
-        .avatar {
-          font-size: 48px;
-        }
-
-        .glow-ring {
-          width: 100px;
-          height: 100px;
-          top: -40px;
-        }
-
-        .detail-item {
-          font-size: 0.95rem;
-          gap: 8px;
-        }
-
-        .btn {
-          padding: 14px 24px;
-          font-size: 0.95rem;
-          min-width: 120px;
-        }
-
-        .toast {
-          font-size: 0.9rem;
-          padding: 12px 24px;
-          white-space: normal;
-          max-width: 90%;
-        }
-      }
-
-      @media (max-width: 400px) {
-        .invitation-card {
-          padding: 26px 14px 24px;
-        }
-        h1 {
-          font-size: 2rem;
-        }
-        .actions {
-          flex-direction: column;
-          align-items: center;
-        }
-        .btn {
-          width: 100%;
-          min-width: unset;
-        }
-      }
-
-      /* ===== АНИМАЦИЯ ПРИ НАЖАТИИ "ДА" ===== */
+      /* ===== АНИМАЦИЯ ===== */
       .celebrate {
         animation: cardCelebrate 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
       }
@@ -542,20 +470,237 @@
         }
       }
 
-      /* ===== ДОПОЛНИТЕЛЬНЫЙ ГЛОСС ===== */
-      .sparkle-text {
-        display: inline-block;
-        animation: sparkle 2.5s ease-in-out infinite;
+      /* ===== IPHONE 13 / 13 PRO СПЕЦИФИЧНЫЕ НАСТРОЙКИ ===== */
+      /* Безопасная зона для iPhone с вырезом */
+      @supports (padding: max(0px)) {
+        .invitation-card {
+          padding-left: max(28px, env(safe-area-inset-left));
+          padding-right: max(28px, env(safe-area-inset-right));
+          padding-top: max(40px, env(safe-area-inset-top));
+          padding-bottom: max(35px, env(safe-area-inset-bottom));
+        }
       }
 
-      @keyframes sparkle {
-        0%,
-        100% {
-          opacity: 0.6;
+      /* Для iPhone 13 (390px ширина) и iPhone 13 Pro (390px ширина) */
+      @media only screen and (device-width: 390px) and (device-height: 844px),
+        only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+        .invitation-card {
+          padding: 32px 24px 30px;
+          border-radius: 36px;
         }
-        50% {
-          opacity: 1;
-          text-shadow: 0 0 20px rgba(244, 143, 177, 0.4);
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .avatar-wrapper {
+          width: 100px;
+          height: 100px;
+          margin: 0 auto 16px;
+        }
+
+        .avatar {
+          font-size: 48px;
+        }
+
+        .glow-ring {
+          width: 100px;
+          height: 100px;
+          top: -40px;
+        }
+
+        .invitation-text {
+          font-size: 0.95rem;
+          line-height: 1.7;
+          margin: 12px 0 18px;
+        }
+
+        .details {
+          padding: 14px 14px;
+          margin: 14px 0 20px;
+        }
+
+        .detail-item {
+          font-size: 0.9rem;
+          gap: 8px;
+          padding: 3px 0;
+        }
+
+        .detail-item .value {
+          font-size: 0.85rem;
+          padding: 2px 12px;
+        }
+
+        .btn {
+          padding: 14px 24px;
+          font-size: 0.9rem;
+          min-width: 110px;
+        }
+
+        .actions {
+          gap: 10px;
+          margin: 18px 0 10px;
+        }
+
+        .toast {
+          font-size: 0.85rem;
+          padding: 12px 20px;
+          bottom: 20px;
+        }
+      }
+
+      /* Для iPhone 13 Pro Max (428px ширина) */
+      @media only screen and (device-width: 428px) and (device-height: 926px) {
+        .invitation-card {
+          padding: 38px 28px 32px;
+        }
+
+        h1 {
+          font-size: 2.6rem;
+        }
+
+        .avatar-wrapper {
+          width: 110px;
+          height: 110px;
+        }
+
+        .avatar {
+          font-size: 52px;
+        }
+
+        .glow-ring {
+          width: 110px;
+          height: 110px;
+          top: -45px;
+        }
+      }
+
+      /* ===== АДАПТИВ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ ===== */
+      @media (max-width: 420px) {
+        .invitation-card {
+          padding: 26px 16px 24px;
+          border-radius: 30px;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .subtitle {
+          font-size: 0.9rem;
+          margin-bottom: 16px;
+          padding-bottom: 14px;
+        }
+
+        .avatar-wrapper {
+          width: 85px;
+          height: 85px;
+          margin: 0 auto 14px;
+        }
+
+        .avatar {
+          font-size: 40px;
+        }
+
+        .glow-ring {
+          width: 80px;
+          height: 80px;
+          top: -30px;
+        }
+
+        .invitation-text {
+          font-size: 0.9rem;
+          line-height: 1.6;
+          margin: 10px 0 16px;
+        }
+
+        .invitation-text strong {
+          font-size: 0.95rem;
+        }
+
+        .details {
+          padding: 12px 12px;
+          margin: 12px 0 16px;
+          border-radius: 16px;
+        }
+
+        .detail-item {
+          font-size: 0.85rem;
+          gap: 6px;
+          padding: 3px 0;
+        }
+
+        .detail-item .emoji {
+          font-size: 1.1rem;
+        }
+
+        .detail-item .label {
+          font-size: 0.7rem;
+        }
+
+        .detail-item .value {
+          font-size: 0.8rem;
+          padding: 2px 10px;
+        }
+
+        .btn {
+          padding: 12px 18px;
+          font-size: 0.85rem;
+          min-width: 100px;
+          border-radius: 50px;
+        }
+
+        .actions {
+          gap: 8px;
+          margin: 14px 0 8px;
+        }
+
+        .heart-counter {
+          gap: 4px;
+          margin-top: 10px;
+          font-size: 0.7rem;
+        }
+
+        .heart-counter .hearts-display {
+          font-size: 0.9rem;
+          min-width: 40px;
+        }
+
+        .toast {
+          font-size: 0.8rem;
+          padding: 10px 16px;
+          bottom: 16px;
+          border-radius: 40px;
+        }
+
+        .firework-particle {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 370px) {
+        .invitation-card {
+          padding: 20px 12px 18px;
+          border-radius: 24px;
+        }
+
+        h1 {
+          font-size: 1.7rem;
+        }
+
+        .avatar-wrapper {
+          width: 70px;
+          height: 70px;
+        }
+
+        .avatar {
+          font-size: 34px;
+        }
+
+        .btn {
+          padding: 10px 14px;
+          font-size: 0.8rem;
+          min-width: 80px;
         }
       }
     </style>
@@ -620,18 +765,18 @@
         <button class="btn btn-secondary" id="noBtn">😅 Может, нет?</button>
       </div>
 
-      <!-- Счётчик сердечек (кликабельный) -->
+      <!-- Счётчик сердечек -->
       <div class="heart-counter" id="heartCounter">
         <span class="click-hint">нажми на сердечко</span>
         <span class="hearts-display" id="heartsDisplay">❤️</span>
-        <span class="click-hint">чтобы добавить любви</span>
+        <span class="click-hint">добавить любви</span>
       </div>
 
       <p
         style="
-          margin-top: 14px;
-          font-size: 0.75rem;
-          color: rgba(255, 255, 255, 0.12);
+          margin-top: 12px;
+          font-size: 0.7rem;
+          color: rgba(255, 255, 255, 0.1);
           letter-spacing: 0.5px;
         "
       >
@@ -701,7 +846,7 @@
       })();
 
       // ============================================================
-      //  2. СЧЁТЧИК СЕРДЕЧЕК (интерактив)
+      //  2. СЧЁТЧИК СЕРДЕЧЕК
       // ============================================================
       let heartCount = 1;
       const heartsDisplay = document.getElementById("heartsDisplay");
@@ -719,7 +864,6 @@
         heartsDisplay.style.transform = "scale(1.6)";
         setTimeout(() => (heartsDisplay.style.transform = "scale(1)"), 300);
 
-        // Отправляем на email
         sendToEmail(`❤️ Нажала на сердечко (всего ${heartCount} раз(а))`);
 
         if (heartCount === 10) {
@@ -731,7 +875,7 @@
       });
 
       // ============================================================
-      //  3. ТОСТ (уведомления)
+      //  3. ТОСТ
       // ============================================================
       let toastTimeout = null;
 
@@ -795,31 +939,26 @@
       yesBtn.addEventListener("click", function (e) {
         e.preventDefault();
 
-        // Отправляем на email
         sendToEmail("✅ ДА! Согласилась на свидание!");
 
-        // Анимация карточки
         card.classList.remove("celebrate");
         void card.offsetWidth;
         card.classList.add("celebrate");
 
-        // Фейерверк
         launchFirework();
         setTimeout(launchFirework, 500);
         setTimeout(launchFirework, 1000);
 
-        // Добавляем сердечко в счётчик
         heartCount = Math.min(heartCount + 2, 30);
         updateHearts();
 
-        showToast("Ты — лучшее, что есть в моей жизни! ❤️", "💃");
+        showToast("Я тебя обожаю! ❤️", "🥰");
       });
 
-      // ---- КНОПКА "НЕТ" (с юмором) ----
+      // ---- КНОПКА "НЕТ" ----
       noBtn.addEventListener("click", function (e) {
         e.preventDefault();
 
-        // Отправляем на email
         sendToEmail('❌ Нажала "НЕТ" (но потом передумала 😄)');
 
         noBtn.textContent = "🥺 Передумала?";
@@ -848,10 +987,9 @@
       });
 
       // ============================================================
-      //  6. ДОП. СЮРПРИЗ: двойной клик по карточке
+      //  6. ДВОЙНОЙ КЛИК
       // ============================================================
       card.addEventListener("dblclick", function () {
-        // Отправляем на email
         sendToEmail("✨ Двойной клик по карточке (сюрприз!)");
 
         const ring = document.querySelector(".glow-ring");
@@ -876,7 +1014,7 @@
       });
 
       // ============================================================
-      //  8. ИНИЦИАЛИЗАЦИЯ
+      //  8. ЗАПУСК
       // ============================================================
       updateHearts();
 
